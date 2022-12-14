@@ -25,12 +25,17 @@ citation: true
 bibliography: references.bib
 ---
 
+# **Importation des données et manipulations**
+
 ```{r echo = FALSE, warning = FALSE, message =FALSE}
 library(fs)
 library(lubridate)
 library(tidyverse)
+library(countrycode)
 
 ```
+
+## Importation des données raw
 
 ```{r download, cache = TRUE}
 URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
@@ -45,6 +50,38 @@ fpath<- path(base_path,
 download.file(url = URL,
               destfile = fpath)
 
+```
+
+## Base de données processed
+
+```{r}
+base_path1 <- path("data", "processed")
+
+fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+
+fpath1 <- path(base_path1, 
+               fname)
+
+fpath1
+download.file(url = URL, destfile = fpath1)
+
+```
+
+## Read les données
+
+```{r}
+
+dat<-  read.csv(fpath1)
+```
+
+## **Ajouter les continents**
+
+```{r}
+dat$continent <- countrycode(sourcevar = dat[, "country"],
+                             origin = "country.name",
+                             destination = "continent")
+
+dat <- as_tibble(dat)
 ```
 
 **DELETE**
