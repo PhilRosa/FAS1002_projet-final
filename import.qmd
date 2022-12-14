@@ -25,12 +25,39 @@ citation: true
 bibliography: references.bib
 ---
 
-Il est maintenant le temps de décrire votre projet avant de passer au document
-suivant, soit l'importation et la manipulation des données.
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+library(fs)
+library(lubridate)
+library(tidyverse)
 
-Je vous conseille d'écrire cette partie en dernier, une fois que vous aurez
-déjà vos résultats et figures afin d'éviter de réécrire cette page plusieurs
-fois.
+```
+
+```{r download, cache = TRUE}
+URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+
+base_path <- path("data", "raw")
+
+fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+
+fpath<- path(base_path,
+             fname)
+
+download.file(url = URL,
+              destfile = fpath)
+
+```
+
+**DELETE**
+
+```{r extraction}
+
+unzip(zipfile = fpath,
+      exdir = base_path)
+```
+
+Il est maintenant le temps de décrire votre projet avant de passer au document suivant, soit l'importation et la manipulation des données.
+
+Je vous conseille d'écrire cette partie en dernier, une fois que vous aurez déjà vos résultats et figures afin d'éviter de réécrire cette page plusieurs fois.
 
 ::: callout-important
 N'oubliez pas d'inclure vos références sur chacune des pages!
