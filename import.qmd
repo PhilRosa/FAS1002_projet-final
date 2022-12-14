@@ -25,12 +25,9 @@ citation: true
 bibliography: references.bib
 ---
 
-Il est maintenant le temps de décrire votre projet avant de passer au document
-suivant, soit l'importation et la manipulation des données.
+Il est maintenant le temps de décrire votre projet avant de passer au document suivant, soit l'importation et la manipulation des données.
 
-Je vous conseille d'écrire cette partie en dernier, une fois que vous aurez
-déjà vos résultats et figures afin d'éviter de réécrire cette page plusieurs
-fois.
+Je vous conseille d'écrire cette partie en dernier, une fois que vous aurez déjà vos résultats et figures afin d'éviter de réécrire cette page plusieurs fois.
 
 ::: callout-important
 N'oubliez pas d'inclure vos références sur chacune des pages!
@@ -39,3 +36,47 @@ N'oubliez pas d'inclure vos références sur chacune des pages!
 Par exemple:
 
 > Les données proviennent entre autres de @owidenergy.
+
+```{r echo=FASLE, waring=FALSE, message=FALSE, cache = TRUE}
+#Comment importer des données 
+# echo=FALSE permet de cacher la boîte. 
+download.file(url="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv",
+              destfile = "data/raw/owid-co2-data.csv")
+
+URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+
+library(fs)
+library(lubridate)
+library(tidyverse)
+
+base_path <- path("data", "raw")
+
+fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+
+
+fpath <-  path(base_path, 
+               fname) 
+
+fpath
+
+download.file(url = URL, destfile = fpath)
+```
+
+```{r extraction}
+
+# Pas nécessaire
+
+unzip(zipfile = fpath,
+      exdir=base_path)
+```
+
+Voyons ce qui il y a deux nouveuax:
+
+\*\*'r
+
+```{r}
+df <- read_csv(file = path(base_path, "athlete_events.csv"))
+
+df
+spec(df)
+```
