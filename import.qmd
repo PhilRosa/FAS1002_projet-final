@@ -35,10 +35,10 @@ N'oubliez pas d'inclure vos références sur chacune des pages!
 
 Par exemple:
 
-> Les données proviennent entre autres de @owidenergy.
+> Les données proviennent entre autres de @owidenergy. ##modifé ca pour co2
 
 ```{r echo=FASLE, waring=FALSE, message=FALSE, cache = TRUE}
-#Comment importer des données 
+#Importation des données de World in Data 
 # echo=FALSE permet de cacher la boîte. 
 download.file(url="https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv",
               destfile = "data/raw/owid-co2-data.csv")
@@ -50,17 +50,38 @@ library(lubridate)
 library(tidyverse)
 
 base_path <- path("data", "raw")
-
+base_path1 <- path("data", "processed")
 fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
 
 
 fpath <-  path(base_path, 
                fname) 
-
+fpath1 <- path(base_path1, 
+               fname)
 fpath
-
+fpath1
 download.file(url = URL, destfile = fpath)
+download.file(url = URL, destfile = fpath1)
+
 ```
+
+## Transformer nos données dans un format tibble.
+
+
+```{r}
+
+library(tibble)
+
+dat <- read.csv(fpath1)
+
+dat <- as_tibble(dat)
+class(dat)
+names(dat)
+
+```
+
+
+
 
 ```{r extraction}
 
@@ -80,3 +101,17 @@ df <- read_csv(file = path(base_path, "athlete_events.csv"))
 df
 spec(df)
 ```
+ créer une nouvelle variable qui catégorisera les différents pays
+en fonction des continents
+```{r}
+
+unique(dat$country)
+
+library(countrycode)
+
+
+dat$continent <- countrycode(sourcevar = dat[, "country"],
+                             origin = "country.name",
+                             destination = "continent")
+
+# Source = https://stackoverflow.com/questions/47510141/get-continent-name-from-country-name-in-r
