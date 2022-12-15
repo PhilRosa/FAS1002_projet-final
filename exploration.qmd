@@ -82,10 +82,12 @@ dat |> filter(year==2015) |>
 
 ## Les tableaux descriptifs
 
+### Statistiques sommaires pour les continents
+
 ```{r}
 library(vtable)
 
-table_1_continent<- sumtable(dat,out='return',
+table_1_continent<- sumtable(dat,out= 'return'
          summ=c('mean(x)',
                 'median(x)',
                 'sd(x)',
@@ -99,11 +101,32 @@ table_1_continent<- sumtable(dat,out='return',
                  'energy_per_capita',
                  'energy_per_gdp'),
          group="continent",
-         title="Tableau 1") 
+         title="Statistiques sommaires selon les continents") 
           
 ```
 
-![](images/paste-4F8296B2.png)
+![](images/paste-1CE1F5FB.png)
+
+### Statistiques sommaires pour l'ensemble des pays
+
+```{r}
+summary(dat,country$gdp)
+library(rstatix)
+
+dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
+                          show=c("min","max", "mean", "sd","median"))
+```
+
+```{r}
+
+dat3<- dat %>% filter(country) %>% select(gdp, population,co2_per_capita, co2_per_gdp, continent )
+```
+
+### Création variable PIB par habitant
+
+```{r}
+dat$gdp_per_capita <- dat |> mutate( gdp_per_capita = gdp / population)
+```
 
 ## Graphique
 
