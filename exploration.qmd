@@ -62,15 +62,161 @@ fig <- df %>%
     height = 600
   )
 
-fig <- fig %>% layout(xaxis = list(type = "log"))
+fig10 <- fig10 %>% layout(xaxis = list(type = "log"))
 
-fig <- fig %>%
+fig1 <- fig1 %>%
   animation_button(
     x = 0, xanchor = "left", y = -0.15, yanchor = "bottom"
   )
 fig
+
+
+fig10 <- dat %>%
+  plot_ly(
+    x = ~ gdp,
+    y = ~ co2_per_capita,
+    size = ~ population,
+    color = ~ continent,
+    frame = ~ year,
+    text = ~ country,
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  )
+fig10
+names(dat)
+
+
 ```
 
--------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
-À votre imagination de jouer!
+**Réintégration des données**
+
+```{r read}
+
+df <-  read_csv(file = "data/raw/athelete_events.csv")
+```
+
+```{r}
+library(fs)
+library(lubridate)
+library(tidyverse)
+library(skimr)
+```
+
+```{r}
+
+ggplot(data = df, mapping = aes(x=Age)) +
+    geom_histogram(color = "black", fill = "#facade",
+                   binwidth = 1)
+
+df |> filter (Age > 79) |> 
+    select(Name, Age, Team, Games, Sport, Sex)
+```
+
+## Age vs Sexe
+
+```{r}
+p2 <- ggplot(df, aes(x= Sex, y = Age)) + geom_boxplot()
+
+
+
+```
+
+## Évolution du ratio H:F
+
+```{r}
+
+e <-  df|> 
+    group_by(Year, Sex) |> 
+    summarise(n = n()) |> 
+    mutate(ratio = n / sum(n)*100)
+e_femme <- e |> filter(Sex == "F")
+e_homme <- e |> filter(Sex =="M")
+p3 <- ggplot(e) + geom_line(aes(x=Year, y=
+```
+
+
+### partie bertrand pour description données
+
+```{r}
+
+
+ggplot(data = dat_2015, mapping = aes(x=Age)) +
+    geom_histogram(color = "black", fill = "#facade",
+                   binwidth = 1)
+
+df |> filter (Age > 79) |> 
+    select(Name, Age, Team, Games, Sport, Sex)
+
+dat_2015 |> filter(year==2015) |> 
+    select(country,gdp, population,co2_per_capita, co2_per_gdp, continent )
+
+#Création data set de 2015
+
+dat_2015 <- dat |> filter(year==2015)
+summary(dat_2015$population)
+summary(dat_2015$gdp)
+
+#Division de la population et du PIB par un million pour facilité la visualisation
+
+dat_2015 <- dat_2015 |>  
+    mutate(population = population / 1 ) |> 
+    mutate(gdp = gdp/1000000)
+
+summary(dat_2015$population)
+
+names(dat)
+library(arsenal)
+
+table_1<- tableby(continent ~ ., data = dat_2015)
+summary(table_1, title= "Tableau 1")
+
+
+table_four <- tableby(~year + continent + gdp, data=dat_2015) 
+summary(table_four)
+
+library(vtable)
+
+
+
+sumtable(dat,
+         summ=c('mean(x)',
+                'median(x)',
+                'sd(x)',
+                'max(x)',
+                'min(x)'),
+         vars= c('gdp',
+                 'population',
+                 'co2',
+                 'co2_per_capita',
+                 'co2_per_gdp',
+                 'energy_per_capita',
+                 'energy_per_gdp'),
+         group="continent",
+         title="Tableau 1")
+
+# gdp, population, co2, co2_per_capita, co2_per_gdp, energy_per_capita, energy_per_gdp
+```
+## Graphiques visuels
+
+```{r}
+library(ggthemes)
+ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color = continent)) + geom_point() + scale_x_continuous(trans = "log2") +
+    theme_clean() + scale_y_continuous(trans = "log2")  +
+    labs(title = "Évolution des émissions de CO2 par PIB en fonction du PIB", size = 5)
+
+# bon graphique
+graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color = continent)) +
+    geom_point()+ scale_x_continuous(trans = "log10")+
+    scale_y_continuous(trans = "log10") +
+    labs(title = "Évolution des émissions de CO2 par PIB en fonction du PIB en 2015", x="PIB", y="CO2 par PIB", caption = "Données tirées de World in Data") + theme_dark()
+
+graphique_co2_pib
+
+grapihque_co2_pib + theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
