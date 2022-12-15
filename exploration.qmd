@@ -71,6 +71,55 @@ fig <- fig %>%
 fig
 ```
 
--------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 À votre imagination de jouer!
+
+```{r}
+dat |> filter(year==2015) |> 
+    select(gdp, population,co2_per_capita, co2_per_gdp, continent )
+```
+
+## Les tableaux descriptifs
+
+```{r}
+library(vtable)
+
+table_1_continent<- sumtable(dat,out='return',
+         summ=c('mean(x)',
+                'median(x)',
+                'sd(x)',
+                'max(x)',
+                'min(x)'),
+         vars= c('gdp',
+                 'population',
+                 'co2',
+                 'co2_per_capita',
+                 'co2_per_gdp',
+                 'energy_per_capita',
+                 'energy_per_gdp'),
+         group="continent",
+         title="Tableau 1") 
+          
+```
+
+![](images/paste-4F8296B2.png)
+
+## Graphique
+
+```{r}
+dat_2015 <- dat |> filter(year==2015)
+
+dat_2015 <- dat_2015 |>   
+    mutate(gdp = gdp/1000000)
+
+
+
+
+graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color = continent)) +
+    geom_point()+ scale_x_continuous(trans = "log10")+
+    scale_y_continuous(trans = "log10") +
+    labs(title = "Évolution des émissions de CO2 par PIB en fonction du PIB en 2015", x="PIB", y="CO2 par PIB", caption = "Données tirées de World in Data") + theme_dark()
+
+graphique_co2_pib
+```
