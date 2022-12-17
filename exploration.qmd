@@ -25,6 +25,10 @@ citation: true
 bibliography: references.bib
 ---
 
+```{r}
+source("~/FAS 1002/FAS1002_projet-pratique/evironnement_datas.R")
+```
+
 ### Statistiques sommaires pour les continents
 
 ```{r}
@@ -60,30 +64,11 @@ dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_p
                           show=c("min","max", "mean", "sd","median"))
 ```
 
-### Création variable PIB par habitant
-
-```{r}
-dat <- dat |>  mutate(continent =
-                           recode(continent,
-                                  "Americas" = "Amérique",
-                                  "Asia"="Asie",
-                                  "Oceania"="Océanie",
-                                  "Africa"="Afrique"))
-dat$gdp_per_capita <- dat |> mutate( gdp_per_capita = gdp / population)
-```
-
 ## Graphiques
 
 ### Émission de CO2 par PIB
 
 ```{r}
-dat_2015 <- dat |> filter(year==2015)
-
-dat_2015 <- dat_2015 |>   
-    mutate(gdp = gdp/1000000)
-
-
-dat_2015=dat_2015 %>% drop_na(continent)
 
 graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color = continent)) +
     geom_point()+ scale_x_continuous(trans = "log10")+
@@ -116,9 +101,7 @@ graph_evol_co2
 
 ```{r}
 
-dat2 = dat_2015 %>% drop_na(continent) 
-
-co2_2015 <- ggplot(data = dat2, aes(x = co2_per_capita, fill = continent)) +
+co2_2015 <- ggplot(data = dat_2015, aes(x = co2_per_capita, fill = continent)) +
     geom_density(position="stack") +
     theme_dark() +
     labs(title = "2015", x="CO2 par habitant", y="Densité", caption = "Données tirées de World in Data")+
@@ -130,15 +113,8 @@ dois faire dat avec pib/habitant
 
 ```{r}
 
-library(patchwork)
-dat_2015 <- dat |> filter(year==2015)
 
-dat_2015 <- dat_2015 |>   
-    mutate(gdp = gdp/1000000)
-
-
-
-co2_2015 <- ggplot(data = dat_2015_2, aes(x = co2_per_capita, fill = continent)) +
+co2_2015 <- ggplot(data = dat_2015, aes(x = co2_per_capita, fill = continent)) +
     geom_density(position="stack") +
     theme_dark() +
     labs(title = "2015", x="CO2 par habitant", y="Densité", caption = "Données tirées de World in Data") + scale_x_continuous(limits=c(0,15))
@@ -186,57 +162,4 @@ graph_evol_pop <- ggplot(dat_continent, aes(x=year, y=population)) +
 
 graph_evol_co2  
 graph_evol_pop
-```
-
-Manipulation des données
-
-```{r}
-
-dat <- dat |> mutate( gdp_per_capita = gdp / population)
-
-# Création d'une nouvelle variable pour le continent
-
-dat$continent <- countrycode(sourcevar = dat[, "country"],
-                             origin = "country.name",
-                             destination = "continent")
-
-### Traduction des continents en français
-dat <- dat |>  mutate(continent =
-                           recode(continent,
-                                  "Americas" = "Amérique",
-                                  "Asia"="Asie",
-                                  "Oceania"="Océanie",
-                                  "Africa"="Afrique"))
-#Création data set de 2015, 1995, 1975 et 1955
-
-dat_2015 <- dat |> filter(year==2015)
-dat_2015 <- dat_2015 |> drop_na(continent)
-dat_1975 <- dat |> filter(year==1975)
-dat_1975 <- dat_1975 |> drop_na(continent)
-dat_1995 <- dat |> filter(year==1995)
-dat_1995 <- dat_1995 |> drop_na(continent)
-dat_1955 <- dat |> filter(year==1955)
-dat_1955 <- dat_1955 |> drop_na(continent)
-
-summary(dat_2015$population)
-summary(dat_2015$gdp)
-
-
-
-
-#Création d'une base de données avec seulement les continents comme données
-
-target <- c("Asia","Africa", "North America", "South America", "Europe", "Oceania")
-dat_continent <- filter(dat, country %in% target)
-unique(dat_continent$country)
-
-# Traduction des continents 
-dat_continent <- dat_continent |>  mutate(country =
-                           recode(country,
-                                  "Americas" = "Amérique",
-                                  "Asia"="Asie",
-                                  "Oceania"="Océanie",
-                                  "Africa"="Afrique",
-                                  "North America" = "Amérique du Nord",
-                                  "South America"="Amérique du Sud"))
 ```

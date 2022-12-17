@@ -15,7 +15,20 @@ if (!file.exists(destfile))
 dat<-  read.csv(fpath)
 
 
+# Les packages
 
+library(fs)
+library(lubridate)
+library(tidyverse)
+library(countrycode)
+library(skimr)
+library(ggthemes)
+library(arsenal)
+library(vtable)
+library(patchwork)
+library(rstatix)
+
+#Les datas
 dat <- dat |> mutate( gdp_per_capita = gdp / population)
 
 # Création d'une nouvelle variable pour le continent
