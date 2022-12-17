@@ -27,6 +27,7 @@ bibliography: references.bib
 
 ```{r}
 library(lubridate)
+library(fs)
 source("evironnement_datas.R")
 ```
 
