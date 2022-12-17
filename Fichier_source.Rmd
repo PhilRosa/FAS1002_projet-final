@@ -1,11 +1,22 @@
----
-title: "R_Markdown"
-author: "Philippe Rosa"
-date: "2022-12-17"
-output: html_document
----
+```{r}
+URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+
+base_path <- path("data", "raw")
+
+fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+
+fpath<- path(base_path,
+             fname)
+
+download.file(url = URL,
+              destfile = fpath)
+
+dat<-  read.csv(fpath)
+```
 
 ```{r}
+
+
 library(fs)
 library(lubridate)
 library(tidyverse)
@@ -19,6 +30,7 @@ library(rstatix)
 ```
 
 ```{r}
+
 dat <- dat |> mutate( gdp_per_capita = gdp / population)
 
 # Création d'une nouvelle variable pour le continent
@@ -47,7 +59,6 @@ dat_1955 <- dat_1955 |> drop_na(continent)
 
 summary(dat_2015$population)
 summary(dat_2015$gdp)
-
 
 
 
