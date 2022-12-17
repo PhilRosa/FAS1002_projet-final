@@ -84,6 +84,26 @@ dat$continent <- countrycode(sourcevar = dat[, "country"],
 dat <- as_tibble(dat)
 ```
 
+```{r}
+library(vtable)
+
+ sumtable(dat,
+         summ=c('mean(x)',
+                'median(x)',
+                'sd(x)',
+                'max(x)',
+                'min(x)'),
+         vars= c('gdp',
+                 'population',
+                 'co2',
+                 'co2_per_capita',
+                 'co2_per_gdp',
+                 'energy_per_capita',
+                 'energy_per_gdp'),
+         group="continent",
+         title="Statistiques sommaires selon les continents") 
+```
+
 **DELETE**
 
 ```{r extraction}

@@ -25,69 +25,12 @@ citation: true
 bibliography: references.bib
 ---
 
-## Un peu d'interactivité pour le plaisir!
-
-```{r map}
-library(leaflet)
-leaflet() %>%
-    setView(lng=150,
-            lat=-30,
-            zoom = 3) %>%
-    addTiles() %>%
-    addMarkers(lng=174.768,
-               lat=-36.852,
-               popup="Là où R est né") %>%
-    addProviderTiles(providers$Esri.WorldGrayCanvas)
-```
-
-## Peut-être que ça vous inspirera!
-
-```{r plotly, message=FALSE, warning=FALSE}
-library(plotly)
-library(gapminder)
-df <- gapminder
-
-fig <- df %>%
-  plot_ly(
-    x = ~ gdpPercap,
-    y = ~ lifeExp,
-    size = ~ pop,
-    color = ~ continent,
-    frame = ~ year,
-    text = ~ country,
-    hoverinfo = "text",
-    type = 'scatter',
-    mode = 'markers',
-    width = "100%",
-    height = 600
-  )
-
-fig <- fig %>% layout(xaxis = list(type = "log"))
-
-fig <- fig %>%
-  animation_button(
-    x = 0, xanchor = "left", y = -0.15, yanchor = "bottom"
-  )
-fig
-```
-
-------------------------------------------------------------------------
-
-À votre imagination de jouer!
-
-```{r}
-dat |> filter(year==2015) |> 
-    select(gdp, population,co2_per_capita, co2_per_gdp, continent )
-```
-
-## Les tableaux descriptifs
-
 ### Statistiques sommaires pour les continents
 
 ```{r}
 library(vtable)
 
-table_1_continent<- sumtable(dat,out= 'return'
+ sumtable(dat,
          summ=c('mean(x)',
                 'median(x)',
                 'sd(x)',
@@ -115,11 +58,6 @@ library(rstatix)
 
 dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
                           show=c("min","max", "mean", "sd","median"))
-```
-
-```{r}
-
-dat3<- dat %>% filter(country) %>% select(gdp, population,co2_per_capita, co2_per_gdp, continent )
 ```
 
 ### Création variable PIB par habitant
@@ -290,7 +228,6 @@ summary(dat_2015$gdp)
 
 target <- c("Asia","Africa", "North America", "South America", "Europe", "Oceania")
 dat_continent <- filter(dat, country %in% target)
-list(dat_continent$country)
 unique(dat_continent$country)
 
 # Traduction des continents 
