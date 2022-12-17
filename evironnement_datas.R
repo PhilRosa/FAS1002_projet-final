@@ -27,7 +27,7 @@ library(arsenal)
 library(vtable)
 library(patchwork)
 library(rstatix)
-
+theme <- theme_light()
 #Les datas
 dat <- dat |> mutate( gdp_per_capita = gdp / population)
 
