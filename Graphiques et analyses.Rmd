@@ -10,7 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-source("~/FAS 1002/FAS1002_projet-pratique/evironnement_datas.R")
+library(lubridate)
+source("evironnement_datas.R")
+
 ```
 
 ## Graphique sur la relation entre PIB et CO2

@@ -26,7 +26,8 @@ bibliography: references.bib
 ---
 
 ```{r}
-source("~/FAS 1002/FAS1002_projet-pratique/evironnement_datas.R")
+library(lubridate)
+source("evironnement_datas.R")
 ```
 
 ### Statistiques sommaires pour les continents
