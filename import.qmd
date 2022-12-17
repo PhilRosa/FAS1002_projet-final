@@ -81,7 +81,6 @@ dat$continent <- countrycode(sourcevar = dat[, "country"],
                              origin = "country.name",
                              destination = "continent")
 
-dat <- as_tibble(dat)
 ```
 
 ```{r}
