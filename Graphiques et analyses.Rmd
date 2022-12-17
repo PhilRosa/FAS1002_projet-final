@@ -10,21 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-library(fs)
-library(lubridate)
-library(tidyverse)
-library(skimr)
-library(ggthemes)
-library(arsenal)
-library(vtable)
-library(patchwork)
-library(countrycode)
-library(rstatix)
-library(gganimate)
-library(transformr)
-
-
-theme <- theme_light()
+source("~/FAS 1002/FAS1002_projet-pratique/evironnement_datas.R")
 ```
 
 ## Graphique sur la relation entre PIB et CO2
@@ -128,7 +114,7 @@ D'une part, on constate qu'en 1950, le continent Africain, Américain et Asiatiq
 
 D'autre part, on constate que malgré le fait que les pays sont plus riche, il y a aussi davantage d'inégalité entre la richesse par habitant des pays, particulièrement entre les continents occidentaux comme l'Europe en comparaison à l'Afrique.
 
-## Graphiques sur l'évolution de la distribution des émissions de CO2 par habitant depuis 1955. 
+## Graphiques sur l'évolution de la distribution des émissions de CO2 par habitant depuis 1955.
 
 ```{r}
 co2_2015 <- ggplot(data = dat_2015, aes(x = co2_per_capita, fill = continent)) +
@@ -165,4 +151,4 @@ co2_1955 <- ggplot(data = dat_1955, aes(x = co2_per_capita, fill = continent)) +
 suppressWarnings(print(co2_1955 + co2_1975 +co2_1995+ co2_2015) +  plot_annotation(title = "Distribution des émissions de CO2 par habitant à chaque 20 ans depuis 1955"))
 ```
 
-###### Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas. 
+###### Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas.
