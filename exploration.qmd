@@ -27,7 +27,7 @@ execute:
   echo: false
 ---
 
-```{r}
+```{r,  echo=FALSE}
 library(lubridate)
 library(fs)
 source("environnement_datas.R")
@@ -37,7 +37,7 @@ source("environnement_datas.R")
 
 ### Statistiques sommaires pour les continents
 
-```{r}
+```{r, warning = FALSE}
 library(vtable)
 
  sumtable(dat,
@@ -66,8 +66,9 @@ Cette table démontre les statistiques sommaires qui seront utilisées dans les 
 summary(dat,country$gdp)
 library(rstatix)
 
-dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
+tableau1 <- dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
                           show=c("min","max", "mean", "sd","median"))
+suppressWarnings(print(tableau1))
 ```
 
 Cette table démontre les statistiques sommaires qui seront utilisées dans les graphiques en faisant une analyse des variables selon l'ensemble des pays de la banque de donnée.
@@ -90,7 +91,7 @@ graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color 
 
     labs(title = "Évolution des émissions de CO2 par habitant en fonction du PIB en 2015", x="PIB", y="CO2 par PIB", caption = "Données tirées de World in Data") + theme
 
-graphique_co2_pib + geom_smooth(se = FALSE, method = lm)
+suppressWarnings((print(graphique_co2_pib + geom_smooth(se = FALSE, method = lm)))) 
 ```
 
 ## Graphiques sur l'évolution du CO2 et population depuis 1850
@@ -119,9 +120,9 @@ graph_evol_co2c <- ggplot(dat_continent, aes(x=year, y=co2_per_capita)) +
     labs(title = " Évolution du CO2/habitant depuis 1850 selon les continents", x="Année", y="CO2 par habitants",
          caption = "Données tirées de World in Data")
 
-graph_evol_co2
-graph_evol_pop
-graph_evol_co2c
+suppressWarnings(printgraph_evol_co2)
+suppressWarnings(printgraph_evol_pop)
+suppressWarnings(printgraph_evol_co2c)
 
 ```
 
@@ -167,6 +168,8 @@ graph_1955 <- ggplot(data = dat_1955, aes(x = gdp_per_capita, fill = continent))
 
 
 
-suppressWarnings(print(graph_1955 + graph_1975 + graph_1995 + graph_2015) +
+suppressWarnings(print(graph_1955 + graph_1975 ) +
     plot_annotation(title = "Distribution du PIB par habitant à chaque 20 ans depuis 1955"))
+
+suppressWarnings(printgraph_1995 + graph_2015))
 ```
