@@ -75,3 +75,5 @@ dat_continent <- dat_continent |>  mutate(country =
                                                      "Africa"="Afrique",
                                                      "North America" = "Amérique du Nord",
                                                      "South America"="Amérique du Sud"))
+
+
