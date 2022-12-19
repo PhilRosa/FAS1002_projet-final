@@ -1,13 +1,13 @@
 ---
-title: "Titre de votre page d'importation"
+title: "Les données"
 title-block-banner: true
 description: | 
-  Petite description de cette page.
+  Cette page porte attention aux données utiliser dans la réalisation de ce projet.
 # à changer
 date: "2022-12-21"
 # Modifier les détails que vous voulez
 author:
-  - name: "Prénom Nom"
+  - name: "Bertrand Turcotte et Philippe Rosa"
     # Votre site web perso ou github
     url: https://github.com/VOTREUSERNAME
     # les champs d'affiliation sont optionnels, vous pouvez les
@@ -74,34 +74,7 @@ download.file(url = URL, destfile = fpath1)
 dat<-  read.csv(fpath1)
 ```
 
-## **Ajouter les continents**
-
-```{r}
-dat$continent <- countrycode(sourcevar = dat[, "country"],
-                             origin = "country.name",
-                             destination = "continent")
-
-```
-
-```{r}
-library(vtable)
-
- sumtable(dat,
-         summ=c('mean(x)',
-                'median(x)',
-                'sd(x)',
-                'max(x)',
-                'min(x)'),
-         vars= c('gdp',
-                 'population',
-                 'co2',
-                 'co2_per_capita',
-                 'co2_per_gdp',
-                 'energy_per_capita',
-                 'energy_per_gdp'),
-         group="continent",
-         title="Statistiques sommaires selon les continents") 
-```
+## 
 
 **DELETE**
 
