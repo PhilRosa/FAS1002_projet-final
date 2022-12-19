@@ -1,8 +1,6 @@
 ---
 title: "Les données"
 title-block-banner: false
-title: "Les différentes banques"
-toc: false 
 description: | 
   Cette page porte attention aux données utiliser dans la réalisation de ce projet.
 # à changer
