@@ -1,13 +1,13 @@
 ---
-title: "Titre de votre page d'exploration"
+title: "Analyse tableaux et graphiques"
 title-block-banner: false
 description: | 
-  Petite description de cette page.
+  Cette page a pour but de démontrer une analyse sur certains points de la banque de données par l'entremise de tableaux et de graphiques.
 # à changer
 date: "2022-12-21"
 # Modifier les détails que vous voulez
 author:
-  - name: "Prénom Nom"
+  - name: "Bertrand Turcotte et Philippe Rosa"
     # Votre site web perso ou github
     url: https://github.com/VOTREUSERNAME
     # les champs d'affiliation sont optionnels, vous pouvez les
@@ -28,7 +28,7 @@ bibliography: references.bib
 ```{r}
 library(lubridate)
 library(fs)
-source("evironnement_datas.R")
+source("environnement_datas.R")
 ```
 
 ### Statistiques sommaires pour les continents
@@ -56,6 +56,8 @@ library(vtable)
 
 ![](images/paste-1CE1F5FB.png)
 
+Cette table démontre les statistiques sommaires qui seront utilisées dans les graphiques en faisant une analyse des variables selon les continents.
+
 ### Statistiques sommaires pour l'ensemble des pays
 
 ```{r}
@@ -65,6 +67,8 @@ library(rstatix)
 dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
                           show=c("min","max", "mean", "sd","median"))
 ```
+
+Cette table démontre les statistiques sommaires qui seront utilisées dans les graphiques en faisant une analyse des variables selon l'ensemble des pays de la banque de donnée.
 
 ## Graphiques
 
