@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(lubridate)
 library(fs)
-source("environnement_datas.R")
+source("evironnement_datas.R")
 
 ```
 
@@ -154,4 +154,6 @@ co2_1955 <- ggplot(data = dat_1955, aes(x = co2_per_capita, fill = continent)) +
 suppressWarnings(print(co2_1955 + co2_1975 +co2_1995+ co2_2015) +  plot_annotation(title = "Distribution des émissions de CO2 par habitant à chaque 20 ans depuis 1955"))
 ```
 
-###### Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas.
+###### 
+
+Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas. Toutefois, les courbes des continents non Africain, particulièrement l'Europe, se sont grandement applati et allongi, indiquant d'une part une hausse moyenne des émissions de CO2 par habitant et d'autre part, davantage d'inégalité entre les pays des continents quant aux émissions par capita. Finalement, on constate que malgré 60 ans de différence entre 2015 et 1955, les émissions africaines sont relativement stable, parcilièrement en contraste au aux autres continent comme l'Europe.
