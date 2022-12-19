@@ -1,13 +1,13 @@
 ---
-title: "Titre de votre page d'introduction"
+title: "Projet d'analyse visuelle sur l'évolution de la performance environnementale des continents depuis 1850"
 title-block-banner: true
 description: | 
-  Petite description de votre projet en une ligne.
+  Ce projet d'analyse utilise les bases de données environnementales de "World in Data" afin de produire une analyse visuelle de la performance environnementales des pays. Le projet met en contexte l'évolution de la population et du PIB afin de contextualiser les variables environnementales. Ce projet est réalisé par Bertrand Turcotte et Philippe Rosa. 
 # à changer
 date: "2022-12-21"
 # Modifier les détails que vous voulez
 author:
-  - name: "Prénom Nom"
+  - name: "Bertrand Turcotte et Philippe Rosa"
     # Votre site web perso ou github
     url: https://github.com/VOTREUSERNAME
     # les champs d'affiliation sont optionnels, vous pouvez les
@@ -25,12 +25,7 @@ citation: true
 bibliography: references.bib
 ---
 
-Il est maintenant le temps de décrire votre projet avant de passer au document
-suivant, soit l'importation et la manipulation des données.
-
-Je vous conseille d'écrire cette partie en dernier, une fois que vous aurez
-déjà vos résultats et figures afin d'éviter de réécrire cette page plusieurs
-fois.
+Ce projet d'analyse utilise les bases de données environnementales de "World in Data" afin de produire une analyse visuelle de la performance environnementales des pays. Le projet met en contexte l'évolution de la population et du PIB afin de contextualiser les variables environnementales. Ce projet est réalisé par Bertrand Turcotte et Philippe Rosa.
 
 ::: callout-important
 N'oubliez pas d'inclure vos références sur chacune des pages!
