@@ -147,7 +147,7 @@ graph_1995 <- ggplot(data = dat_1995, aes(x = gdp_per_capita, fill = continent))
     geom_density(alpha = .4) +
     scale_x_continuous(limits = c(0,30000)) +
     theme +
-    labs(title = "1995", x="PIB par habitant", y="Densité", caption = "Données de l'Océanie seulement disponibles pour la Nouvelle-Zélande et l'Australie") + scale_y_continuous(limits=(c(0, 0.00065)))
+    labs(title = "1995", x="PIB par habitant", y="Densité", caption = "Océanie contient Australie et N-Z") + scale_y_continuous(limits=(c(0, 0.00065)))
 
 
 
@@ -171,5 +171,5 @@ graph_1955 <- ggplot(data = dat_1955, aes(x = gdp_per_capita, fill = continent))
 suppressWarnings(print(graph_1955 + graph_1975 ) +
     plot_annotation(title = "Distribution du PIB par habitant à chaque 20 ans depuis 1955"))
 
-suppressWarnings(printgraph_1995 + graph_2015))
+suppressWarnings(print(graph_1995 + graph_2015))
 ```
