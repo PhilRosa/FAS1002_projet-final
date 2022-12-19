@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(lubridate)
 library(fs)
-source("evironnement_datas.R")
+source("environnement_datas.R")
 
 ```
 
