@@ -27,7 +27,7 @@ execute:
   echo: false
 ---
 
-```{r,  echo=FALSE}
+```{r,  include = FALSE}
 library(lubridate)
 library(fs)
 source("environnement_datas.R")
@@ -37,7 +37,7 @@ source("environnement_datas.R")
 
 ### Statistiques sommaires pour les continents
 
-```{r, warning = FALSE}
+```{r, message = FALSE, warning = FALSE}
 library(vtable)
 
  sumtable(dat,
@@ -62,7 +62,7 @@ Cette table démontre les statistiques sommaires qui seront utilisées dans les 
 
 ### Statistiques sommaires pour l'ensemble des pays
 
-```{r, warning = FALSE}
+```{r, message = FALSE, warning = FALSE}
 summary(dat,country$gdp)
 library(rstatix)
 
@@ -81,7 +81,7 @@ Nous voulons tester l'effet de la croissance du PIB sur l'emprunte carbone des i
 
 Comme on peut voir dans le graphique, il y a une relation positive entre la croissance du PIB et de l'intensité de CO2 par habitant. Cette relation est similaire à travers les continents. Il est important de noter que les axes évoluent de manière logarithmique, exprimant ainsi une relation plus forte.
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 
 graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color = continent)) +
 
@@ -98,7 +98,7 @@ suppressWarnings((print(graphique_co2_pib + geom_smooth(se = FALSE, method = lm)
 
 Ces graphiques présentent l'évolutions des émissions de CO2, de la population et du CO2 par habitant depuis 1850 pour l'ensemble des continents.
 
-```{r}
+```{r,  message = FALSE, warning = FALSE}
 # Évolution du Co2 depuis 1850 selon les continents
 graph_evol_co2 <- ggplot(dat_continent, aes(x=year, y=co2)) +
     geom_line(aes(color=country),size = 1.2) + xlim(1850, 2020) +
@@ -134,7 +134,7 @@ Ainsi, dans un contexte de réchauffement climatique et d'effort de réduction d
 
 Ces graphiques ont comme but de comparer la distribution du PIB par habitant des continents
 
-```{r}
+```{r,  message = FALSE, warning = FALSE}
 graph_2015 <- ggplot(data = dat_2015, aes(x = gdp_per_capita, fill = continent)) +
     geom_density(alpha = .4) +
     scale_x_continuous(limits = c(0,40000)) +
@@ -168,8 +168,8 @@ graph_1955 <- ggplot(data = dat_1955, aes(x = gdp_per_capita, fill = continent))
 
 
 
-suppressWarnings(print(graph_1955 + graph_1975 ) +
-    plot_annotation(title = "Distribution du PIB par habitant à chaque 20 ans depuis 1955"))
-
-suppressWarnings(print(graph_1995 + graph_2015))
+graph_1955  + plot_annotation(title = "Distribution du PIB par habitant à chaque 20 ans depuis 1955")
+graph_1975
+graph_1995
+graph_2015
 ```
