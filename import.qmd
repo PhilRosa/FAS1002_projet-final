@@ -1,6 +1,8 @@
 ---
 title: "Les données"
-title-block-banner: true
+title-block-banner: false
+title: "Les différentes banques"
+toc: false 
 description: | 
   Cette page porte attention aux données utiliser dans la réalisation de ce projet.
 # à changer
@@ -38,21 +40,43 @@ source("environnement_datas.R")
 
 Les données dans le fichier raw constituent la banque de donnée non-modifiée provenant directement de Our World in Data.
 
-```{r}
-
-view(dat)
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat
 ```
 
 ## Base de données processed
 
 Le fichier des données processed montre toutes les nouvelles banques de données provenant de manipulation de la banque originale pour permettre l'étude de variables spécifiques.
 
-```{r}
-view(dat_1955)
-view(dat_1975)
-view(dat_1995)
-view(dat_2015)
-view(dat_continent)
+### dat_1955
+
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat_1955
+
+```
+
+### Dat 1975
+
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat_1975
+```
+
+### Dat 1995
+
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat_1995
+```
+
+### Dat 2015
+
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat_2015
+```
+
+### Dat Continent
+
+```{r echo = FALSE, warning = FALSE, message =FALSE}
+dat_continent
 ```
 
 **DELETE**
