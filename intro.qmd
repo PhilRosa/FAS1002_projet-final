@@ -2,7 +2,7 @@
 title: "Projet d'analyse visuelle sur l'évolution de la performance environnementale des continents depuis 1850"
 title-block-banner: true
 description: | 
-  Ce projet d'analyse utilise les bases de données environnementales de "World in Data" afin de produire une analyse visuelle de la performance environnementales des pays. Le projet met en contexte l'évolution de la population et du PIB afin de contextualiser les variables environnementales. Ce projet est réalisé par Bertrand Turcotte et Philippe Rosa. 
+  Ce projet est réalisé dans le cadre du cours de FAS 1002 - Initatiation à la programmation à l'Université de Montréal 
 # à changer
 date: "2022-12-21"
 # Modifier les détails que vous voulez
