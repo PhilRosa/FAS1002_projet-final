@@ -1,13 +1,13 @@
 ---
-title: "Titre de votre page d'importation"
+title: "Les données"
 title-block-banner: true
 description: | 
-  Petite description de cette page.
+  Cette page porte attention aux données utiliser dans la réalisation de ce projet.
 # à changer
 date: "2022-12-21"
 # Modifier les détails que vous voulez
 author:
-  - name: "Prénom Nom"
+  - name: "Bertrand Turcotte et Philippe Rosa"
     # Votre site web perso ou github
     url: https://github.com/VOTREUSERNAME
     # les champs d'affiliation sont optionnels, vous pouvez les
@@ -30,77 +30,29 @@ bibliography: references.bib
 ```{r echo = FALSE, warning = FALSE, message =FALSE}
 library(fs)
 library(lubridate)
-library(tidyverse)
-library(countrycode)
+source("environnement_datas.R")
 
 ```
 
 ## Importation des données raw
 
-```{r download, cache = TRUE}
-URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+Les données dans le fichier raw constituent la banque de donnée non-modifiée provenant directement de Our World in Data.
 
-base_path <- path("data", "raw")
+```{r}
 
-fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
-
-fpath<- path(base_path,
-             fname)
-
-download.file(url = URL,
-              destfile = fpath)
-
+view(dat)
 ```
 
 ## Base de données processed
 
-```{r}
-base_path1 <- path("data", "processed")
-
-fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
-
-fpath1 <- path(base_path1, 
-               fname)
-
-fpath1
-download.file(url = URL, destfile = fpath1)
-
-```
-
-## Read les données
+Le fichier des données processed montre toutes les nouvelles banques de données provenant de manipulation de la banque originale pour permettre l'étude de variables spécifiques.
 
 ```{r}
-
-dat<-  read.csv(fpath1)
-```
-
-## **Ajouter les continents**
-
-```{r}
-dat$continent <- countrycode(sourcevar = dat[, "country"],
-                             origin = "country.name",
-                             destination = "continent")
-
-```
-
-```{r}
-library(vtable)
-
- sumtable(dat,
-         summ=c('mean(x)',
-                'median(x)',
-                'sd(x)',
-                'max(x)',
-                'min(x)'),
-         vars= c('gdp',
-                 'population',
-                 'co2',
-                 'co2_per_capita',
-                 'co2_per_gdp',
-                 'energy_per_capita',
-                 'energy_per_gdp'),
-         group="continent",
-         title="Statistiques sommaires selon les continents") 
+view(dat_1955)
+view(dat_1975)
+view(dat_1995)
+view(dat_2015)
+view(dat_continent)
 ```
 
 **DELETE**
