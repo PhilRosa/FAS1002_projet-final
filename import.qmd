@@ -46,6 +46,23 @@ dat
 
 Le fichier des données processed montre toutes les nouvelles banques de données provenant de manipulation de la banque originale pour permettre l'étude de variables spécifiques.
 
+### Création base de données pour calculer le temps écoulé en jours entre la production (rendering) du rapport et la première année que des données ont été récoltées pour chacun des pays qui se trouvent dans le jeu de données de Life Expectancy at Birth.
+
+```{r}
+
+
+dat_exp1$time <-  ymd(dat_exp1$time, truncated = 2L )
+
+
+dat_exp1 = dat_exp1 |> 
+    group_by(name) |> 
+    mutate(date_original = min(time)) |> 
+    ungroup()
+
+dat_exp1 = dat_exp1 |> mutate(Difference_temps = difftime(today(), date_original), units = "days")
+
+```
+
 ### dat_1955
 
 ```{r echo = FALSE, warning = FALSE, message =FALSE}
