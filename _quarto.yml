@@ -26,7 +26,8 @@ website:
     left:
       - href: index.qmd
         text: Page d'accueil
-      - intro.qmd
+      - href: intro.qmd
+        text: Introduction
       - href: import.qmd
         text: Banque de données
       - exploration.qmd
