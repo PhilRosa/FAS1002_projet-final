@@ -64,6 +64,10 @@ dat_exp1 = dat_exp1 |> mutate(Difference_temps = difftime(today(), date_original
 
 ```
 
+```{r}
+dat_exp1
+```
+
 ### dat_1955
 
 ```{r echo = FALSE, warning = FALSE, message =FALSE}
