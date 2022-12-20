@@ -1,6 +1,5 @@
 
 # Les packages
-install.packages("readxl")
 library("readxl")
 library(fs)
 library(lubridate)
