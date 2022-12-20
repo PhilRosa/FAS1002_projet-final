@@ -49,7 +49,8 @@ dat$continent <- countrycode(sourcevar = dat[, "country"],
                              origin = "country.name",
                              destination = "continent")
 
-dat_exp1$continent <- countrycode(sourcevar = dat[, "country"],
+
+dat_exp1$continent <- countrycode(sourcevar = dat_exp1[["name"]],
                                  origin = "country.name",
                                  destination = "continent")
 
