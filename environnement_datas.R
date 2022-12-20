@@ -1,12 +1,16 @@
 URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
-
+URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptEByE-VtnjOCselU0PE/export?format=xlsx"
 base_path <- path("data", "raw")
 
 fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+fnamex <- paste(today(), "_GM-LifeExpectancy-Dataset-v12", sep= "_")
 
 fpath<- path(base_path,
              fname)
 destfile <- './owid-co2-data.csv'
+
+fpathx <- path(base_path, fnamex)
+
 if (!file.exists(destfile))
     
     download.file(url = URL,
@@ -14,9 +18,11 @@ if (!file.exists(destfile))
 
 dat<-  read.csv(fpath)
 
+dat_exp <- read_excel(fpathx)
 
 # Les packages
-
+install.packages("readxl")
+library("readxl")
 library(fs)
 library(lubridate)
 library(tidyverse)
