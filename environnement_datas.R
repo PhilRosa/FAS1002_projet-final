@@ -30,7 +30,7 @@ list.files(path = "data/raw/", pattern = "csv",full.names = T)
 if(!file.exists(fname))print(fname) else(file.remove('./owid-co2-data.csv'))+ download.file(url = URL,
                                                                                destfile = fpath)
 
-fnamex <- paste(month(12), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
+fnamex <- paste(today(), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
 fpathx <- path(base_path, fnamex)
 destfilex <- './_GM-Life Expectancy- Dataset - v12.xlsx'
 URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptEByE-VtnjOCselU0PE/export?format=xlsx"
