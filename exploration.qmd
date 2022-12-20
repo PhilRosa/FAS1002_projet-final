@@ -27,9 +27,10 @@ execute:
   echo: false
 ---
 
-```{r,  include = FALSE}
+```{r echo = FALSE, warning = FALSE, message =FALSE}
 library(lubridate)
 library(fs)
+library(readxl)
 source("environnement_datas.R")
 ```
 
