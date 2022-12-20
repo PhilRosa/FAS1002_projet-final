@@ -19,7 +19,7 @@ author:
     orcid: 0000-0000-0000-0000
 
 # TRUE == Générer une citation pour cette page précise. Pour enlever, mettre false.
-citation: false
+citation: true
 # Inclure les références que vous utilisez dans vos rapports. Je conseille Zotero pour construire
 # ce fichier ou de connecter RStudio directement pour pouvoir citer avec @nom-de-reference.
 bibliography: references.bib
@@ -230,4 +230,4 @@ Lors des années 1950, les pays avaient des PIB par habitant beacoup plus simila
 
 ## Si vous voulez télécharger les données
 
-\[Our World in Data - Données CO2\](https://github.com/owid/co2-data)
+Télécharger ici : \[Our World in Data - Données CO2\](https://github.com/owid/co2-data)
