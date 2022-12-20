@@ -28,7 +28,7 @@ website:
         text: Page d'accueil
       - intro.qmd
       - href: import.qmd
-        text: Titre à changer
+        text: Banque de données
       - exploration.qmd
     right:
       - href: a-propos.qmd
