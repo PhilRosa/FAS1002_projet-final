@@ -53,9 +53,7 @@ website:
   favicon: /assets/img/FAS1002.png
 format:
   html:
-    theme:
-      light: [flatly, assets/scss/styles.css]
-      dark: [darkly, assets/scss/styles-dark.scss]
+    theme: lumen
     code-fold: true
     code-copy: true
     code-overflow: wrap
