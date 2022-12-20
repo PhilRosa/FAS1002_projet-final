@@ -1,3 +1,17 @@
 ---
 title: "FAS1002_projet-final"
 ---
+
+## Mot de bienvenue
+
+Bienvenue au site web du rapport analytique de la performance environnementale de la planète depuis 1850. Ce rapport est réalisé dans le cadre du cours de [*FAS-1002 - Initiation à la programmation*]{.underline} et est produit par l'équipe de Bertrand Turcotte et Philippe Rosa.
+
+![](images/paste-EE543057.png)
+
+## Contexte
+
+Le contexte climatique actuel constitut l'un des problèmes majeures auquel font face les générations futures et présentes. En effet, le rechauffement climatique engendre une pléthore de problèmes et de risques pour l'ensemble de l'humanité, tels que la destruction des habitats, l'augmentation des désastres naturels et la fonte des eaux pour en nommer quelques uns.
+
+## Objectif du rapport
+
+Ce rapport a donc comme but de produire une analyse de la performance des pays sur le plan environnementale depuis 1850 à partir de la base de données du site "Our World in Data" et de produire un support visuel avec des graphiques.
