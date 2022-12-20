@@ -25,7 +25,11 @@ citation: true
 bibliography: references.bib
 ---
 
-Ce projet d'analyse utilise les bases de données environnementales de "World in Data" afin de produire une analyse visuelle de la performance environnementales des pays. Le projet met en contexte l'évolution de la population et du PIB afin de contextualiser les variables environnementales. Ce projet est réalisé par Bertrand Turcotte et Philippe Rosa.
+Ce projet d'analyse utilise les bases de données environnementales de "World in Data" afin de produire une analyse visuelle de la performance environnementales des pays. Le projet met en contexte l'évolution de la population et du PIB afin de contextualiser les variables environnementales.
+
+Dans cette analyse, la banque de données principale a été manipuler plusieurs fois pour obtenir de nouvelles banques permettant une analyse plus détaillée des variables.
+
+Dans un premier temps, la banque a été changer selon les années, soit en 1955, 1975, 1995 et 2015 pour suivre l'évolution du CO2 à coup de 20 ans. Par la suite, des manipulations on été faites pour calculer le PIB par habitant et mettre cette variable en relation avec l'évolution du co2 en année. Finalement, le PIB par habitant est mis en relation avec les différent pays pour permettre la mise en place de graphiques montrant la distribution des pays selon leur PIB par habitant.
 
 ::: callout-important
 N'oubliez pas d'inclure vos références sur chacune des pages!
