@@ -230,4 +230,4 @@ Lors des années 1950, les pays avaient des PIB par habitant beacoup plus simila
 
 ## Si vous voulez télécharger les données
 
-\[Our World in Data - Données CO2\] (https://github.com/owid/co2-data)
+\[Our World in Data - Données CO2\](https://github.com/owid/co2-data)
