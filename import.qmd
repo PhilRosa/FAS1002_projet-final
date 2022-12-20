@@ -30,6 +30,7 @@ bibliography: references.bib
 ```{r echo = FALSE, warning = FALSE, message =FALSE}
 library(fs)
 library(lubridate)
+library(readxl)
 source("environnement_datas.R")
 
 ```
