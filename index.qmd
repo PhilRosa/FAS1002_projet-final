@@ -6,7 +6,7 @@ title: "FAS1002_projet-final"
 
 Bienvenue au site web du rapport analytique de la performance environnementale de la planète depuis 1850. Ce rapport est réalisé dans le cadre du cours de [*FAS-1002 - Initiation à la programmation*]{.underline} et est produit par l'équipe de Bertrand Turcotte et Philippe Rosa.
 
-![](images/paste-EE543057.png)
+![](images/paste-9BEB2BB8.png)
 
 La Terre (Source: NASA.)
 
