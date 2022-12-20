@@ -86,7 +86,7 @@ Cette table démontre les statistiques sommaires qui seront utilisées dans les 
 
 ## Graphique sur la relation entre PIB et CO2
 
-Nous voulons tester l'effet de la croissance du PIB sur l'emprunte carbone des individus. Nous posons l'hypothèse que les deux variables seraient positivement correlé. En effet, un accroissement du niveau de vie (PIB) amenerait les individus à entreprendre des styles de vies plus intensifs en utilisation de carbone, tel que la consommation d'automobile, d'air climatiser, etc. Nous posons aussi l'hypothèse que cette relation serait similaire à travers les continents, démontrant ainsi que le biais culturel n'affecterait pas le relation entre la croissance du niveau de vie et des émissions de CO2.
+Nous voulons tester l'effet de la croissance du PIB sur l'emprunte carbone des individus. Nous posons l'hypothèse que les deux variables seraient positivement correlées. En effet, un accroissement du niveau de vie (PIB) amenerait les individus à entreprendre des styles de vie plus intensifs en utilisation de carbone, tel que la consommation d'automobile, d'air climatisée, etc. Nous posons aussi l'hypothèse que cette relation serait similaire à travers les continents, démontrant ainsi que le biais culturel n'affecterait pas le relation entre la croissance du niveau de vie et des émissions de CO2.
 
 Comme on peut voir dans le graphique, il y a une relation positive entre la croissance du PIB et de l'intensité de CO2 par habitant. Cette relation est similaire à travers les continents. Il est important de noter que les axes évoluent de manière logarithmique, exprimant ainsi une relation plus forte.
 
@@ -121,7 +121,7 @@ graph_evol_pop <- ggplot(dat_continent, aes(x=year, y=population)) +
     geom_line(aes(color=country),size = 1.2) + xlim(1850, 2020) +
     theme + labs(color = "Continent") +
     labs(title = " Évolution de la population depuis 1850 selon les continents", x="Année", y="Population",
-         caption = "Données tirées de World in Data")
+         caption = "Données tirées de Our World in Data")
 
 graph_evol_co2c <- ggplot(dat_continent, aes(x=year, y=co2_per_capita)) +
     geom_line(aes(color=country),size = 1.2) + xlim(1850, 2020) +
@@ -135,9 +135,9 @@ suppressWarnings(print(graph_evol_co2c))
 
 ```
 
-Ces graphiques révèlent plusieurs informations d'intérêts. D'une part, la population a évolué de manière exponentielle en Asie suite à la Seconde Guerre mondiale. La population africaine suit une tendance similaire, mais moins forte. D'autre part, malgré une réduction presque systématique (sauf en Asie) des émissions de CO2 par habitant, les émissions totales continuent tout de même d'augmenter significativement. On observe l'effet de l'explosion de population, particulièrement en Asie, sur les émissions totales de C02.
+Ces graphiques révèlent plusieurs informations d'intérêts. D'une part, la population a évoluée de manière exponentielle en Asie suite à la Seconde Guerre mondiale. La population africaine suit une tendance similaire, mais moins forte. D'autre part, malgré une réduction presque systématique (sauf en Asie) des émissions de CO2 par habitant, les émissions totales continuent tout de même d'augmenter significativement. On observe l'effet de l'explosion de population, particulièrement en Asie, sur les émissions totales de CO2.
 
-Ainsi, dans un contexte de réchauffement climatique et d'effort de réduction d'émission de CO2, il est important de réduire davantage les émissions par habitant afin de contrer l'effet d'augmentation total d'émission engendré par la croissance de la population, particulièrement en Afrique et en Asie.
+Ainsi, dans un contexte de réchauffement climatique et d'effort de réduction d'émission de CO2, il est important de réduire davantage les émissions par habitant afin de contrer l'effet d'augmentation totale d'émission engendrée par la croissance de la population, particulièrement en Afrique et en Asie.
 
 ## Graphique sur l'évolution de la distribution des pays en fonction de leur PIB par habitant
 
@@ -183,9 +183,9 @@ graph_1995
 graph_2015
 ```
 
-D'une part, on constate qu'en 1950, le continent Africain, Américain et Asiatique avait des PIB par habitant qui étaient généralement en dessous de 5000\$ par habitant en juxtaposition à l'Europe et l'Océanie (Australie et Nouvelle-Zélande) qui avait des PIB/habitant plus élévé. Toutefois, on observe que les distributions pour l'ensemble des continents se sont progressivement applati au fil des décénnies. En effet, en 2015, on constate que la plupart des continents (sauf l'Afrique) ont dépassé la moyenne de 10 000\$ par habitant.
+D'une part, on constate qu'en 1950, les continents africain, américain et asiatique avaient des PIB par habitant qui étaient généralement en dessous de 5000\$ en juxtaposition à l'Europe et l'Océanie (Australie et Nouvelle-Zélande) qui avait des PIB/habitant plus élévés. Toutefois, on observe que les distributions pour l'ensemble des continents se sont progressivement applati au fil des décénnies. En effet, en 2015, on constate que la plupart des continents (sauf l'Afrique) ont dépassés la moyenne de 10 000\$ par habitant.
 
-D'autre part, on constate que malgré le fait que les pays sont plus riche, il y a aussi davantage d'inégalité entre la richesse par habitant des pays, particulièrement entre les continents occidentaux comme l'Europe en comparaison à l'Afrique.
+D'autre part, on constate que malgré le fait que les pays sont plus riche, il y a aussi davantage d'inégalités entre la richesse par habitant des pays, particulièrement entre les continents occidentaux comme l'Europe en comparaison à l'Afrique.
 
 ## Graphiques sur l'évolution de la distribution des émissions de CO2 par habitant depuis 1955.
 
@@ -226,7 +226,7 @@ co2_1995
 co2_2015 
 ```
 
-Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas. Toutefois, les courbes des continents non Africain, particulièrement l'Europe, se sont grandement applati et allongi, indiquant d'une part une hausse moyenne des émissions de CO2 par habitant et d'autre part, davantage d'inégalité entre les pays des continents quant aux émissions par capita. Finalement, on constate que malgré 60 ans de différence entre 2015 et 1955, les émissions africaines sont relativement stable, parcilièrement en contraste au aux autres continent comme l'Europe.
+Lors des années 1950, les pays avaient des PIB par habitant beacoup plus similaire et plus bas. Toutefois, les courbes des continents non africains, particulièrement l'Europe, se sont grandement applati et allongi, indiquant d'une part une hausse moyenne des émissions de CO2 par habitant et d'autre part, davantage d'inégalités entre les pays des continents quant aux émissions par capita. Finalement, on constate que malgré 60 ans de différence entre 2015 et 1955, les émissions africaines sont relativement stables particulièrement en contraste aux autres continent comme l'Europe.
 
 ## Si vous voulez télécharger les données
 
