@@ -41,8 +41,10 @@ website:
       [Propulsé par des logiciels libres 💖](https://github.com/FAS1002/A22){.nav-link}
     center:
     # Changer VOTRE NOM pour ce que vous voulez
-      - text: "VOTRE NOM"
-        href: mailto:VOTRECOURRIEL@example.com
+      - text: "Philippe Rosa"
+        href: mailto:philippe.rosa@umontreal.ca
+      - text: "Bertrand Turcotte"
+        href: mailto:bertrand.turcotte@umontreal.ca
     right:
       - icon: github
         href: https://github.com/FAS1002/
@@ -53,7 +55,7 @@ website:
   favicon: /assets/img/FAS1002.png
 format:
   html:
-    theme: lumen
+    theme: yeti
     code-fold: true
     code-copy: true
     code-overflow: wrap
