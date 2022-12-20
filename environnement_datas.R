@@ -3,22 +3,27 @@ URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptE
 base_path <- path("data", "raw")
 
 fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
-fnamex <- paste(today(), "_GM-LifeExpectancy-Dataset-v12", sep= "_")
+fnamex <- paste(today(), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
 
 fpath<- path(base_path,
              fname)
 destfile <- './owid-co2-data.csv'
 
 fpathx <- path(base_path, fnamex)
+destfile <- './_GM-Life Expectancy- Dataset - v12.xlsx'
+
 
 if (!file.exists(destfile))
     
     download.file(url = URL,
                   destfile = fpath)
 
+download.file(url = URL_excel,
+              destfile=fpathx, mode="wb")
+
 dat<-  read.csv(fpath)
 
-dat_exp <- read_excel(fpathx)
+dat_exp1 <-  read_excel(fpathx, sheet = 4)
 
 # Les packages
 install.packages("readxl")
@@ -43,6 +48,10 @@ dat <- dat |> mutate( gdp_per_capita = gdp / population)
 dat$continent <- countrycode(sourcevar = dat[, "country"],
                              origin = "country.name",
                              destination = "continent")
+
+dat_exp1$continent <- countrycode(sourcevar = dat[, "country"],
+                                 origin = "country.name",
+                                 destination = "continent")
 
 ### Traduction des continents en français
 dat <- dat |>  mutate(continent =
