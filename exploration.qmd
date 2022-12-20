@@ -40,7 +40,7 @@ source("environnement_datas.R")
 ```{r, message = FALSE, warning = FALSE}
 library(vtable)
 
- Tableau_continent<-sumtable(dat,
+ sumtable(dat,
          summ=c('mean(x)',
                 'median(x)',
                 'sd(x)',
@@ -63,7 +63,7 @@ Cette table démontre les statistiques sommaires qui seront utilisées dans les 
 ### Statistiques sommaires pour l'ensemble des pays
 
 ```{r, message = FALSE, warning = FALSE}
-Tableau_pays<-  sumtable(dat,
+sumtable(dat,
          summ=c('mean(x)',
                 'median(x)',
                 'sd(x)',
