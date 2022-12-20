@@ -1,3 +1,21 @@
+
+# Les packages
+install.packages("readxl")
+library("readxl")
+library(fs)
+library(lubridate)
+library(tidyverse)
+library(countrycode)
+library(skimr)
+library(ggplot2)
+library(ggthemes)
+library(arsenal)
+library(vtable)
+library(patchwork)
+library(rstatix)
+theme <- theme_light()
+
+
 base_path <- path("data", "raw")
 
 URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
@@ -28,21 +46,6 @@ dat<-  read.csv(fpath)
 
 dat_exp1 <-  read_excel(fpathx, sheet = 4)
 
-# Les packages
-install.packages("readxl")
-library("readxl")
-library(fs)
-library(lubridate)
-library(tidyverse)
-library(countrycode)
-library(skimr)
-library(ggplot2)
-library(ggthemes)
-library(arsenal)
-library(vtable)
-library(patchwork)
-library(rstatix)
-theme <- theme_light()
 #Les datas
 dat <- dat |> mutate( gdp_per_capita = gdp / population)
 
