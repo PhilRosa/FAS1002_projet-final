@@ -100,7 +100,7 @@ graphique_co2_pib <- ggplot(data=dat_2015, aes(x=gdp, y = co2_per_capita, color 
 
     labs(title = "Évolution des émissions de CO2 par habitant en fonction du PIB en 2015", x="PIB", y="CO2 par PIB", caption = "Données tirées de Our World in Data") + theme
 
-suppressWarnings((print(graphique_co2_pib + geom_smooth(se = FALSE, method = lm)))) 
+(graphique_co2_pib + geom_smooth(se = FALSE, method = lm))
 ```
 
 ## Graphiques sur l'évolution du CO2 et population depuis 1850
