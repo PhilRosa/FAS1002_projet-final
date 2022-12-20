@@ -13,10 +13,20 @@ fpathx <- path(base_path, fnamex)
 destfile <- './_GM-Life Expectancy- Dataset - v12.xlsx'
 
 
-if (!file.exists(destfile))
-    
-    download.file(url = URL,
-                  destfile = fpath)
+
+base_path <- path("data", "raw")
+
+fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
+
+fpath<- path(base_path,
+             fname)
+destfile <- './owid-co2-data.csv'
+
+# download data/delete
+list.files(path = "data/raw/", pattern = "csv",full.names = T)
+if(!file.exists(fname))print(fname) else(file.remove(destfile))+ download.file(url = URL,
+                                                                               destfile = fpath)
+
 
 download.file(url = URL_excel,
               destfile=fpathx, mode="wb")
