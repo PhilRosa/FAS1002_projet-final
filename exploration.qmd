@@ -40,7 +40,7 @@ source("environnement_datas.R")
 ```{r, message = FALSE, warning = FALSE}
 library(vtable)
 
- sumtable(dat,
+ Tableau_continent<-sumtable(dat,
          summ=c('mean(x)',
                 'median(x)',
                 'sd(x)',
@@ -63,12 +63,21 @@ Cette table démontre les statistiques sommaires qui seront utilisées dans les 
 ### Statistiques sommaires pour l'ensemble des pays
 
 ```{r, message = FALSE, warning = FALSE}
-summary(dat,country$gdp)
-library(rstatix)
-
-tableau1 <- dat %>% get_summary_stats(population,gdp,co2,co2_per_capita,co2_per_gdp,energy_per_capita,energy_per_gdp,
-                          show=c("min","max", "mean", "sd","median"))
-(tableau1)
+Tableau_pays<-  sumtable(dat,
+         summ=c('mean(x)',
+                'median(x)',
+                'sd(x)',
+                'max(x)',
+                'min(x)'),
+         vars= c('gdp',
+                 'population',
+                 'co2',
+                 'co2_per_capita',
+                 'co2_per_gdp',
+                 'energy_per_capita',
+                 'energy_per_gdp'),
+         group="country",
+         title="Statistiques sommaires selon les continents") 
 ```
 
 Cette table démontre les statistiques sommaires qui seront utilisées dans les graphiques en faisant une analyse des variables selon l'ensemble des pays de la banque de donnée.
