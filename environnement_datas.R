@@ -1,35 +1,28 @@
+base_path <- path("data", "raw")
+
 URL <- "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
-URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptEByE-VtnjOCselU0PE/export?format=xlsx"
-base_path <- path("data", "raw")
-
 fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
-fnamex <- paste(today(), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
-
 fpath<- path(base_path,
              fname)
+
 destfile <- './owid-co2-data.csv'
 
-fpathx <- path(base_path, fnamex)
-destfile <- './_GM-Life Expectancy- Dataset - v12.xlsx'
 
-
-
-base_path <- path("data", "raw")
-
-fname <- paste(today(),"owid-co2-data.csv" ,sep= "_")
-
-fpath<- path(base_path,
-             fname)
-destfile <- './owid-co2-data.csv'
-
-# download data/delete
+# download data/delete quotidien
 list.files(path = "data/raw/", pattern = "csv",full.names = T)
-if(!file.exists(fname))print(fname) else(file.remove(destfile))+ download.file(url = URL,
+if(!file.exists(fname))print(fname) else(file.remove('./owid-co2-data.csv'))+ download.file(url = URL,
                                                                                destfile = fpath)
 
+fnamex <- paste(month(12), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
+fpathx <- path(base_path, fnamex)
+destfilex <- './_GM-Life Expectancy- Dataset - v12.xlsx'
+URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptEByE-VtnjOCselU0PE/export?format=xlsx"
 
-download.file(url = URL_excel,
-              destfile=fpathx, mode="wb")
+#download data/delete quotidien mensuel
+list.files(path = "data/raw/", pattern = "xlsx",full.names = T)
+if(!file.exists(fnamex))print(fnamex) else(file.remove('./_GM-Life Expectancy- Dataset - v12.xlsx'))+ download.file(url = URL_excel,
+                                                                                            destfilex = fpathx,mode="wb")
+
 
 dat<-  read.csv(fpath)
 

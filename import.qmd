@@ -48,7 +48,7 @@ Le fichier des données processed montre toutes les nouvelles banques de donnée
 
 ### Création base de données pour calculer le temps écoulé en jours entre la production (rendering) du rapport et la première année que des données ont été récoltées pour chacun des pays qui se trouvent dans le jeu de données de Life Expectancy at Birth.
 
-```{r}
+```{r echo = FALSE, warning = FALSE, message =FALSE}
 
 
 dat_exp1$time <-  ymd(dat_exp1$time, truncated = 2L )
