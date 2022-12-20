@@ -19,7 +19,7 @@ author:
     orcid: 0000-0000-0000-0000
 
 # TRUE == Générer une citation pour cette page précise. Pour enlever, mettre false.
-citation: true
+citation: false
 # Inclure les références que vous utilisez dans vos rapports. Je conseille Zotero pour construire
 # ce fichier ou de connecter RStudio directement pour pouvoir citer avec @nom-de-reference.
 bibliography: references.bib
