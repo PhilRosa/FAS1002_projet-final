@@ -3,37 +3,24 @@ title: "À propos"
 toc: false
 ---
 
-<!--# Veuillez adapter le texte ci-dessous en lien avec votre projet -->
+## 
 
-![](assets/img/FAS1002.png){fig-align="center" width="25%"}
+## Quoi?
 
-## Bio
+Dans le cadre du cours de FAS-1002, nous avons eu la mission de produire un rapport analytique qui est consultable à partir d'une page Web personalisée. Pour ce faire, nous avons mis en relation des données environnementales portant sur l'ensemble des pays depuis 1850 à partir des bases de données du site "Our World in Data".
 
-Le [cours
-FAS1002](https://admission.umontreal.ca/cours-et-horaires/cours/fas-1002/) est
-une introduction à la programmation en sciences sociales avec
-[R](https://www.r-project.org/), un langage de programmation et un
-environnement statistique populaire pour analyser de données. Principalement
-convoité pour ses fonctionnalités statistiques avancées, R s'avère autant
-utilisé en recherche qu'en industrie, ce qui confère un avantage concret à son
-apprentissage. À ce sujet, R se prête bien à l'apprentissage de la
-programmation en raison de:
+## Qui?
 
--   sa nature libre et gratuite;
--   sa polyvalence de fonctionnalités;
--   sa popularité et sa variété de domaines d'application;
--   la diversité de ressources et d'aide disponible gratuitement sur le Web;
--   sa vibrante communauté reconnue pour son inclusivité et son support
-    bienveillant.
-
-<aside></aside>
+Ce projet est réalisé en équipe de deux avec Philippe Rosa et Bertrand Turcotte en liant nos deux ordinateurs à travers la plateforme GitHub. L'application R et R studio ont également été utilisé pour coder le site web ainsi que pour produire l'analyse et le traitement des données.
 
 ## Contact
 
-**Programme** \| [Microprogramme en analyse des mégadonnées en sciences
-humaines et
-sociales](https://admission.umontreal.ca/programmes/microprogramme-de-1er-cycle-en-analyse-des-megadonnees-en-sciences-humaines-et-sociales/structure-du-programme/)
+**Programme** \| [Microprogramme en analyse des mégadonnées en sciences humaines et sociales](https://admission.umontreal.ca/programmes/microprogramme-de-1er-cycle-en-analyse-des-megadonnees-en-sciences-humaines-et-sociales/structure-du-programme/)
 
 **Université** \| [Université de Montréal](https://umontreal.ca)
 
-**Courriel** \| fas1002\@samuelguay.ca
+**Courriel** \| bertrand.turcotte\@umontreal.ca et philippe.rosa\@umontreal.ca
+
+## Remerciement
+
+Nous tennons à remercier notre professeur Samuel Guay, doctorant en psychologie - option neuroscience cognitive, pour son aide dans la réalisation du site web.
