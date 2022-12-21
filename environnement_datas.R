@@ -99,3 +99,11 @@ dat_continent <- dat_continent |>  mutate(country =
                                                      "South America"="Amérique du Sud"))
 
 
+base_path2 <- (file.path("data", "processed"))
+
+write.csv(dat_1955, "data/processed/dat_1955.csv")
+write.csv(dat_1975, "data/processed/dat_1975.csv")
+write.csv(dat_1995, "data/processed/dat_1995.csv")
+write.csv(dat_2015, "data/processed/dat_2015.csv")
+write.csv(dat_continent, "data/processed/dat_continent.csv")
+write.csv(dat_exp1, "data/processed/dat_exp1.csv")

@@ -40,7 +40,7 @@ Le reste des fichier sont assez explicites et ne nécéssites pas vraiment d'exp
 
 Bertrand Turcotte et Philippe Rosa
 
-## Remerciements: 
+## Remerciements:
 
 Merci à Samuel Guay pour son soutien et son mentorat tout au long de la session.
 
@@ -58,7 +58,27 @@ Merci à Samuel Guay pour son soutien et son mentorat tout au long de la session
 
 -   Jim Hester, Hadley Wickham, Gábor Csárdi (2021). fs: Cross-Platform File System Operations Based on 'libuv'. [https://fs.r-lib.org](https://fs.r-lib.org/), <https://github.com/r-lib/fs>
 
--   
+-   library (readxl)
+
+-   library(lubridate)
+
+-   library(tidyverse)
+
+-   library(countrycode)
+
+-   library(skimr)
+
+-   library(ggplot2)
+
+-   library(ggthemes)
+
+-   library(arsenal)
+
+-   library(vtable)
+
+-   library(patchwork)
+
+-   library(rstatix)
 
 ## Licence
 
