@@ -10,9 +10,9 @@ website:
 
   reader-mode: true
 # URL de votre site une fois publié - <VOTREUSERNAME> à changer 
-  site-url: https://VOTREUSERNAME.github.io/FAS1002_projet-final/
+  site-url: https://PhilRosa.github.io/FAS1002_projet-final/
 # URL de votre répertoire - VOTREUSERNAME/VOTRE-RÉPERTOIRE à changer
-  repo-url: https://github.com/VOTREUSERNAME/VOTRE-RÉPERTOIRE/
+  repo-url: https://github.com/PhilRosa/FAS1002_projet-final/
   repo-actions: [edit, issue, source]
   
 # Options à changer pour le menu ou la barre de navigation
