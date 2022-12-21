@@ -106,3 +106,6 @@ write.csv(dat_1995, "data/processed/dat_1995.csv")
 write.csv(dat_2015, "data/processed/dat_2015.csv")
 write.csv(dat_continent, "data/processed/dat_continent.csv")
 write.csv(dat_exp1, "data/processed/dat_exp1.csv")
+
+
+.libPaths("D:\\R-4.2.1\\library")
