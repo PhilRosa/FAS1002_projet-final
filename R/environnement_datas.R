@@ -1,4 +1,4 @@
-
+getwd()
 # Les packages
 library("readxl")
 library(rmarkdown)
