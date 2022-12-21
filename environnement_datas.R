@@ -1,6 +1,7 @@
 
 # Les packages
 library("readxl")
+library(rmarkdown)
 library(fs)
 library(lubridate)
 library(tidyverse)
