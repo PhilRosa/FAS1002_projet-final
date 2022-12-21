@@ -1,6 +1,6 @@
-
 # Les packages
-library(readxl)
+library("readxl")
+library(rmarkdown)
 library(fs)
 library(lubridate)
 library(tidyverse)
@@ -28,7 +28,7 @@ destfile <- './owid-co2-data.csv'
 # download data/delete quotidien
 list.files(path = "data/raw/", pattern = "csv",full.names = T)
 if(!file.exists(fname))print(fname) else(file.remove('./owid-co2-data.csv'))+ download.file(url = URL,
-                                                                               destfile = fpath)
+                                                                                            destfile = fpath)
 
 fnamex <- paste(today(), "_GM-Life Expectancy- Dataset - v12.xlsx", sep= "_")
 fpathx <- path(base_path, fnamex)
@@ -38,7 +38,7 @@ URL_excel <- "https://docs.google.com/spreadsheets/d/1RheSon1-q4vFc3AGyupVPH6ptE
 #download data/delete quotidien mensuel
 list.files(path = "data/raw/", pattern = "xlsx",full.names = T)
 if(!file.exists(fnamex))print(fnamex) else(file.remove('./_GM-Life Expectancy- Dataset - v12.xlsx'))+ download.file(url = URL_excel,
-                                                                                            destfilex = fpathx,mode="wb")
+                                                                                                                    destfilex = fpathx,mode="wb")
 
 
 dat<-  read.csv(fpath)
@@ -56,8 +56,8 @@ dat$continent <- countrycode(sourcevar = dat[, "country"],
 
 
 dat_exp1$continent <- countrycode(sourcevar = dat_exp1[["name"]],
-                                 origin = "country.name",
-                                 destination = "continent")
+                                  origin = "country.name",
+                                  destination = "continent")
 
 ### Traduction des continents en français
 dat <- dat |>  mutate(continent =
