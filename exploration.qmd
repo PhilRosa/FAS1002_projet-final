@@ -31,7 +31,7 @@ execute:
 library(lubridate)
 library(fs)
 library(readxl)
-source("environnement_datas.R")
+source("environnement_data.R")
 ```
 
 # Tableaux présentant les statistiques descriptives
